@@ -1,6 +1,5 @@
 package com.example.weather.data.network.service
 
-import com.example.weather.BuildConfig
 import com.example.weather.data.model.WeatherResponse
 import retrofit2.Response
 import retrofit2.http.GET

@@ -30,7 +30,7 @@ class Repository(
             service.getWeather(city).parse {
                 it.city = city
                 emitData(Response.Success(it))
-                realm.executeTransaction { realm ->
+                realm.executeTransactionAsync { realm ->
                     realm.insertOrUpdate(it)
                 }
             }

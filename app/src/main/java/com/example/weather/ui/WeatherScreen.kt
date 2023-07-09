@@ -26,7 +26,7 @@ fun WeatherScreen(
             .padding(24.dp)
     ) {
         TextField(
-            value = "",
+            value = city.orEmpty(),
             onValueChange = {
                 city = it
             },
@@ -38,9 +38,12 @@ fun WeatherScreen(
             }
         )
         Spacer(modifier = Modifier.size(20.dp))
-        Button(onClick = {}) {
+        Button(onClick = {
             city?.let { viewModel.getWeatherFromApi(it) }
+        }) {
+            Text(text = "Search")
         }
+        Spacer(modifier = Modifier.size(20.dp))
 
         when (viewModel.screenState.value) {
             ScreenState.Success -> {
